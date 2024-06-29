@@ -18,7 +18,6 @@ interface Modal{
  const App:React.FC=()=>{
   const [images, setImages] = useState<Hit[] >([])
   const [search, setSearch] = useState<string>('')
-  const [total, setTotal] = useState<number>(0)
   const [queryPage, setQueryPage] = useState<number>(1)
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState<boolean>(false)
@@ -34,13 +33,11 @@ interface Modal{
       .then(({hits, totalHits}) => { 
         
         setImages(prev=>[...prev, ...hits]),
-        setTotal(totalHits);
         setShowLoadMore(images.length < totalHits); // Оновлюємо стан для показу кнопки "Load More"
-      //prev || hits.length images.length
       })
       .catch(error=>setError(error.message || 'Unknown error'))
       .finally(()=>setLoading(false))
-  },[search, queryPage ]);
+  },[search, queryPage]);
 
   const onLoadMore=()=>{   
     setQueryPage(prev=>prev + 1)
@@ -78,9 +75,7 @@ interface Modal{
         /> )} 
 
          {showLoadMore && <Button onLoadMoreClick={onLoadMore}/>} 
-          
-         {/* {(images.length < total)?( <Button onLoadMoreClick={onLoadMore}/>):(showLoadMore)}  */}
-        
+                  
     </div>
     )
 }

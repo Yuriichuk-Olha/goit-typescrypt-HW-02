@@ -21,17 +21,3 @@ const ImageGalleryItem: React.FC<ImageGalleryItemProps> =
 }
 
 export default ImageGalleryItem
-
-/* export default function ImageGalleryItem: React.FC<ImageGalleryItemProps>({webformatURL ,largeImageURL, clickImages}){
-    
-  return <li className={css.ImageGalleryItem}>
-
-            <img src={webformatURL} alt="" 
-            className={css.ImageGalleryItemImage}
-            width='260'
-            onClick={()=>clickImages(largeImageURL)}
-            />
-            
-          </li>
-} */
-
