@@ -24,7 +24,7 @@ interface Modal{
   const [loading, setLoading] = useState<boolean>(false)
   const [modal, setModal] = useState<Modal>({showModal:false, largeImageURL:''})
   const [showLoadMore, setShowLoadMore] = useState<boolean>(false);
-  //показу кнопки "Load More" let loadMore=false;
+  //показувати кнопки "Load More" let loadMore=false;
 
   useEffect(()=>{
     if(!search) return
